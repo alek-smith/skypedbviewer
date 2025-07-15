@@ -36,4 +36,20 @@ public class Toolbox {
 
     }
 
+    /**
+     * Retrieves the number of entries from the given ResultSet.
+     * @param res the ResultSet
+     * @return the number of entries
+     * @throws SQLException if an SQL error occured
+     */
+    public static int getRowCount(ResultSet res) throws SQLException {
+
+        int curr = res.getRow();
+        res.last();
+        int count = res.getRow();
+        res.absolute(curr);
+        return count;
+
+    }
+
 }
